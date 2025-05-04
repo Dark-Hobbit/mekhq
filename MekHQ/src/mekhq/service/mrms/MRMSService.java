@@ -1155,20 +1155,25 @@ public class MRMSService {
                 }
             }
 
-            // If we have a null newWorkTime, we're done. Use the previous one.
+            // If we have a null newWorkTime, we're done. Use the previous one if within set min/max TNs.
             if (null == newWorkTime) {
                 debugLog("...... ending calculateNewMRMSWorktime because newWorkTime is null - %s ns",
                       "calculateNewMRMSWorktime",
                       System.nanoTime() - time);
 
-                if (!increaseTime) {
-                    return new WorkTimeCalculation(previousNewWorkTime);
-                }
+                targetRoll = campaign.getTargetFor(partWork, tech);
 
                 WorkTimeCalculation wtc = new WorkTimeCalculation(null);
+<<<<<<< HEAD
 
                 if (skill.getExperienceLevel(tech.getOptions(), tech.getATOWAttributes()) >=
                           highestAvailableTechSkill) {
+=======
+                if (mrmsOption.getBthMin() <= targetRoll.getValue() && targetRoll.getValue() <= mrmsOption.getBthMax()) {
+                    wtc.setWorkTime(previousNewWorkTime);
+                }
+                if (skill.getExperienceLevel() >= highestAvailableTechSkill) {
+>>>>>>> 04191faf9d (Use extra time even if final TN between min TN and max TN)
                     wtc.setReachedMaxSkill(true);
                 }
 
@@ -1210,12 +1215,15 @@ public class MRMSService {
                           System.nanoTime() - time);
 
                     return new WorkTimeCalculation(previousNewWorkTime);
+<<<<<<< HEAD
                 } else if (targetRoll.getValue() > mrmsOption.getBthMax()) {
                     debugLog("...... ending calculateNewMRMSWorktime because we have reached our BTH goal - %s ns",
                           "calculateNewMRMSWorktime",
                           System.nanoTime() - time);
 
                     return new WorkTimeCalculation(newWorkTime);
+=======
+>>>>>>> 04191faf9d (Use extra time even if final TN between min TN and max TN)
                 }
             }
         }
@@ -1245,6 +1253,10 @@ public class MRMSService {
 
         public WorkTime getWorkTime() {
             return workTime;
+        }
+
+        public void setWorkTime(WorkTime workTime) {
+            this.workTime = workTime;
         }
 
         public boolean isReachedMaxSkill() {
