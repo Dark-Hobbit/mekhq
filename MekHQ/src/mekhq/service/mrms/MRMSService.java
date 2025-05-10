@@ -791,11 +791,11 @@ public class MRMSService {
                     debugLog("... can't increase the time because this part can't have its workMode changed",
                           "repairPart");
                 }
-                else if (targetRoll.getValue() > mrmsOptions.getBthMin() && !configuredOptions.isUseExtraTime()) {
+                else if (targetRoll.getValue() > mrmsOptions.getTargetNumberPreferred() && !configuredOptions.isUseExtraTime()) {
                     debugLog("... is above min TN but can't increase time due to configuration", "repairPart");
                 }
                 // Check if we need to increase the time to meet the min TN
-                else if (targetRoll.getValue() > mrmsOptions.getBthMin() && configuredOptions.isUseExtraTime()) {
+                else if (targetRoll.getValue() > mrmsOptions.getTargetNumberPreferred() && configuredOptions.isUseExtraTime()) {
                     WorkTimeCalculation workTimeCalc = calculateNewMRMSWorktime(partWork, tech,
                             mrmsOptions, campaign, true, highestAvailableTechSkill);
 
@@ -804,9 +804,8 @@ public class MRMSService {
                             debugLog("... is above min TN but can't increase time enough with max available tech",
                                     "repairPart");
 
-                            return MRMSPartAction.createMaxSkillReached(partWork,
-                                  highestAvailableTechSkill,
-                                  mrmsOptions.getBthMin());
+                            return MRMSPartAction.createMaxSkillReached(partWork, highestAvailableTechSkill,
+                                    mrmsOptions.getTargetNumberPreferred());
                         } else {
                             debugLog("... is above min TN but can't increase time enough", "repairPart");
 
@@ -817,11 +816,11 @@ public class MRMSService {
                         selectedWorktime = workTimeCalc.getWorkTime();
                     }
                 }
-                else if (targetRoll.getValue() < mrmsOptions.getBthMax() && !configuredOptions.isUseRushJob()) {
+                else if (targetRoll.getValue() < mrmsOptions.getTargetNumberMax() && !configuredOptions.isUseRushJob()) {
                     debugLog("... is below max TN but can't decrease time due to configuration", "repairPart");
                 }
                 // Check if we need to decrease the time to meet the max TN
-                else if (targetRoll.getValue() < mrmsOptions.getBthMax() && configuredOptions.isUseRushJob()) {
+                else if (targetRoll.getValue() < mrmsOptions.getTargetNumberMax() && configuredOptions.isUseRushJob()) {
                     WorkTimeCalculation workTimeCalc = calculateNewMRMSWorktime(partWork, tech,
                           mrmsOptions, campaign, false, highestAvailableTechSkill);
                     if (workTimeCalc.getWorkTime() == null) {
@@ -831,7 +830,7 @@ public class MRMSService {
                                   "repairPart");
 
                             return MRMSPartAction.createMaxSkillReached(partWork, highestAvailableTechSkill,
-                                  mrmsOptions.getBthMin());
+                                  mrmsOptions.getTargetNumberPreferred());
                         } else {
                             debugLog("... is below max TN but can't increase time within skill limits", "repairPart");
 
@@ -864,7 +863,7 @@ public class MRMSService {
                 ((Part) partWork).resetModeToNormal();
             }
 
-            if (targetRoll.getValue() > mrmsOptions.getBthMax()) {
+            if (targetRoll.getValue() > mrmsOptions.getTargetNumberMax()) {
                 debugLog("... is above max TN allowed", "repairPart");
 
                 continue;
@@ -1189,7 +1188,7 @@ public class MRMSService {
                 targetRoll = campaign.getTargetFor(partWork, tech);
 
                 WorkTimeCalculation wtc = new WorkTimeCalculation(null);
-                if (targetRoll.getValue() <= mrmsOption.getBthMax()) {
+                if (targetRoll.getValue() <= mrmsOption.getTargetNumberMax()) {
                     wtc.setWorkTime(previousNewWorkTime);
                 }
                 if (skill.getExperienceLevel(tech.getOptions(), tech.getATOWAttributes()) >=
@@ -1221,18 +1220,20 @@ public class MRMSService {
             if (increaseTime) {
                 // If we've reached our BTH, kick out. Otherwise we'll loop
                 // around again
-                if (targetRoll.getValue() <= mrmsOption.getBthMin()) {
-                    debugLog("...... ending calculateNewMRMSWorktime because we have reached our BTH goal - %s ns",
-                          "calculateNewMRMSWorktime",
-                          System.nanoTime() - time);
+                if (targetRoll.getValue() <= mrmsOption.getTargetNumberPreferred()) {
+                    debugLog(
+                            "...... ending calculateNewMRMSWorktime because we have reached our BTH goal - %s ns",
+                            "calculateNewMRMSWorktime",
+                            System.nanoTime() - time);
 
                     return new WorkTimeCalculation(newWorkTime);
                 }
             } else {
-                if (targetRoll.getValue() > mrmsOption.getBthMax()) {
-                    debugLog("...... ending calculateNewMRMSWorktime because we have reached our BTH goal - %s ns",
-                          "calculateNewMRMSWorktime",
-                          System.nanoTime() - time);
+                if (targetRoll.getValue() > mrmsOption.getTargetNumberMax()) {
+                    debugLog(
+                            "...... ending calculateNewMRMSWorktime because we have reached our BTH goal - %s ns",
+                            "calculateNewMRMSWorktime",
+                            System.nanoTime() - time);
 
                     return new WorkTimeCalculation(previousNewWorkTime);
                 }
@@ -1325,7 +1326,7 @@ public class MRMSService {
         private IPartWork partWork;
         private STATUS status;
         private int maxTechSkill;
-        private int configuredBTHMin;
+        private int configuredTargetNumberPreferred;
 
         public MRMSPartAction(IPartWork partWork) {
             this.partWork = partWork;
@@ -1377,23 +1378,23 @@ public class MRMSService {
             this.maxTechSkill = maxTechSkill;
         }
 
-        public int getConfiguredBTHMin() {
-            return configuredBTHMin;
+        public int getConfiguredTargetNumberPreferred() {
+            return configuredTargetNumberPreferred;
         }
 
-        public void setConfiguredBTHMin(int configuredBTHMin) {
-            this.configuredBTHMin = configuredBTHMin;
+        public void setConfiguredTargetNumberPreferred(int configuredTargetNumberPreferred) {
+            this.configuredTargetNumberPreferred = configuredTargetNumberPreferred;
         }
 
         public static MRMSPartAction createRepaired(IPartWork partWork) {
             return new MRMSPartAction(partWork, STATUS.REPAIRED);
         }
 
-        public static MRMSPartAction createMaxSkillReached(final IPartWork partWork, final int maxSkill,
-              final int bthMin) {
+        public static MRMSPartAction createMaxSkillReached(final IPartWork partWork,
+                final int maxSkill, final int targetNumberPreferred) {
             final MRMSPartAction mrmsPartAction = new MRMSPartAction(partWork, STATUS.MAX_SKILL_REACHED);
             mrmsPartAction.setMaxTechSkill(maxSkill);
-            mrmsPartAction.setConfiguredBTHMin(bthMin);
+            mrmsPartAction.setConfiguredTargetNumberPreferred(targetNumberPreferred);
             return mrmsPartAction;
         }
 
