@@ -140,11 +140,11 @@ public class UnitMarketOffer {
         Money cost = Money.of((double) getUnit().getCost()).multipliedBy(getPercent()).dividedBy(100);
 
         if (getEntity().isMixedTech()) {
-            cost = cost.multipliedBy(campaignOptions.getMixedTechUnitPriceMultiplier());
+            cost = cost.multipliedBy(campaignOptions.getMixedTechUnitPriceMultiplierBuy());
         } else if (getEntity().isClan()) {
-            cost = cost.multipliedBy(campaignOptions.getClanUnitPriceMultiplier());
+            cost = cost.multipliedBy(campaignOptions.getClanUnitPriceMultiplierBuy());
         } else { // Inner Sphere Entity
-            cost = cost.multipliedBy(campaignOptions.getInnerSphereUnitPriceMultiplier());
+            cost = cost.multipliedBy(campaignOptions.getInnerSphereUnitPriceMultiplierBuy());
         }
 
         return cost;

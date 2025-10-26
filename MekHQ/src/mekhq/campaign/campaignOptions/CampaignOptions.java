@@ -492,12 +492,18 @@ public class CampaignOptions {
     private boolean allowMonthlyConnections;
 
     // Price Multipliers
-    private double commonPartPriceMultiplier;
-    private double innerSphereUnitPriceMultiplier;
-    private double innerSpherePartPriceMultiplier;
-    private double clanUnitPriceMultiplier;
-    private double clanPartPriceMultiplier;
-    private double mixedTechUnitPriceMultiplier;
+    private double commonPartPriceMultiplierBuy;
+    private double innerSphereUnitPriceMultiplierBuy;
+    private double innerSpherePartPriceMultiplierBuy;
+    private double clanUnitPriceMultiplierBuy;
+    private double clanPartPriceMultiplierBuy;
+    private double mixedTechUnitPriceMultiplierBuy;
+    private double commonPartPriceMultiplierSell;
+    private double innerSphereUnitPriceMultiplierSell;
+    private double innerSpherePartPriceMultiplierSell;
+    private double clanUnitPriceMultiplierSell;
+    private double clanPartPriceMultiplierSell;
+    private double mixedTechUnitPriceMultiplierSell;
     private double[] usedPartPriceMultipliers;
     private double damagedPartsValueMultiplier;
     private double unrepairablePartsValueMultiplier;
@@ -1125,12 +1131,18 @@ public class CampaignOptions {
         allowMonthlyConnections = false;
 
         // Price Multipliers
-        setCommonPartPriceMultiplier(1.0);
-        setInnerSphereUnitPriceMultiplier(1.0);
-        setInnerSpherePartPriceMultiplier(1.0);
-        setClanUnitPriceMultiplier(1.0);
-        setClanPartPriceMultiplier(1.0);
-        setMixedTechUnitPriceMultiplier(1.0);
+        setCommonPartPriceMultiplierBuy(1.0);
+        setInnerSphereUnitPriceMultiplierBuy(1.0);
+        setInnerSpherePartPriceMultiplierBuy(1.0);
+        setClanUnitPriceMultiplierBuy(1.0);
+        setClanPartPriceMultiplierBuy(1.0);
+        setMixedTechUnitPriceMultiplierBuy(1.0);
+        setCommonPartPriceMultiplierSell(1.0);
+        setInnerSphereUnitPriceMultiplierSell(1.0);
+        setInnerSpherePartPriceMultiplierSell(1.0);
+        setClanUnitPriceMultiplierSell(1.0);
+        setClanPartPriceMultiplierSell(1.0);
+        setMixedTechUnitPriceMultiplierSell(1.0);
         setUsedPartPriceMultipliers(0.1, 0.2, 0.3, 0.5, 0.7, 0.9);
         setDamagedPartsValueMultiplier(0.33);
         setUnrepairablePartsValueMultiplier(0.1);
@@ -3575,52 +3587,100 @@ public class CampaignOptions {
     }
 
     // region Price Multipliers
-    public double getCommonPartPriceMultiplier() {
-        return commonPartPriceMultiplier;
+    public double getCommonPartPriceMultiplierBuy() {
+        return commonPartPriceMultiplierBuy;
     }
 
-    public void setCommonPartPriceMultiplier(final double commonPartPriceMultiplier) {
-        this.commonPartPriceMultiplier = commonPartPriceMultiplier;
+    public void setCommonPartPriceMultiplierBuy(final double commonPartPriceMultiplierBuy) {
+        this.commonPartPriceMultiplierBuy = commonPartPriceMultiplierBuy;
     }
 
-    public double getInnerSphereUnitPriceMultiplier() {
-        return innerSphereUnitPriceMultiplier;
+    public double getInnerSphereUnitPriceMultiplierBuy() {
+        return innerSphereUnitPriceMultiplierBuy;
     }
 
-    public void setInnerSphereUnitPriceMultiplier(final double innerSphereUnitPriceMultiplier) {
-        this.innerSphereUnitPriceMultiplier = innerSphereUnitPriceMultiplier;
+    public void setInnerSphereUnitPriceMultiplierBuy(final double innerSphereUnitPriceMultiplierBuy) {
+        this.innerSphereUnitPriceMultiplierBuy = innerSphereUnitPriceMultiplierBuy;
     }
 
-    public double getInnerSpherePartPriceMultiplier() {
-        return innerSpherePartPriceMultiplier;
+    public double getInnerSpherePartPriceMultiplierBuy() {
+        return innerSpherePartPriceMultiplierBuy;
     }
 
-    public void setInnerSpherePartPriceMultiplier(final double innerSpherePartPriceMultiplier) {
-        this.innerSpherePartPriceMultiplier = innerSpherePartPriceMultiplier;
+    public void setInnerSpherePartPriceMultiplierBuy(final double innerSpherePartPriceMultiplierBuy) {
+        this.innerSpherePartPriceMultiplierBuy = innerSpherePartPriceMultiplierBuy;
     }
 
-    public double getClanUnitPriceMultiplier() {
-        return clanUnitPriceMultiplier;
+    public double getClanUnitPriceMultiplierBuy() {
+        return clanUnitPriceMultiplierBuy;
     }
 
-    public void setClanUnitPriceMultiplier(final double clanUnitPriceMultiplier) {
-        this.clanUnitPriceMultiplier = clanUnitPriceMultiplier;
+    public void setClanUnitPriceMultiplierBuy(final double clanUnitPriceMultiplierBuy) {
+        this.clanUnitPriceMultiplierBuy = clanUnitPriceMultiplierBuy;
     }
 
-    public double getClanPartPriceMultiplier() {
-        return clanPartPriceMultiplier;
+    public double getClanPartPriceMultiplierBuy() {
+        return clanPartPriceMultiplierBuy;
     }
 
-    public void setClanPartPriceMultiplier(final double clanPartPriceMultiplier) {
-        this.clanPartPriceMultiplier = clanPartPriceMultiplier;
+    public void setClanPartPriceMultiplierBuy(final double clanPartPriceMultiplierBuy) {
+        this.clanPartPriceMultiplierBuy = clanPartPriceMultiplierBuy;
     }
 
-    public double getMixedTechUnitPriceMultiplier() {
-        return mixedTechUnitPriceMultiplier;
+    public double getMixedTechUnitPriceMultiplierBuy() {
+        return mixedTechUnitPriceMultiplierBuy;
     }
 
-    public void setMixedTechUnitPriceMultiplier(final double mixedTechUnitPriceMultiplier) {
-        this.mixedTechUnitPriceMultiplier = mixedTechUnitPriceMultiplier;
+    public void setMixedTechUnitPriceMultiplierBuy(final double mixedTechUnitPriceMultiplierBuy) {
+        this.mixedTechUnitPriceMultiplierBuy = mixedTechUnitPriceMultiplierBuy;
+    }
+
+    public double getCommonPartPriceMultiplierSell() {
+        return commonPartPriceMultiplierSell;
+    }
+
+    public void setCommonPartPriceMultiplierSell(final double commonPartPriceMultiplierSell) {
+        this.commonPartPriceMultiplierSell = commonPartPriceMultiplierSell;
+    }
+
+    public double getInnerSphereUnitPriceMultiplierSell() {
+        return innerSphereUnitPriceMultiplierSell;
+    }
+
+    public void setInnerSphereUnitPriceMultiplierSell(final double innerSphereUnitPriceMultiplierSell) {
+        this.innerSphereUnitPriceMultiplierSell = innerSphereUnitPriceMultiplierSell;
+    }
+
+    public double getInnerSpherePartPriceMultiplierSell() {
+        return innerSpherePartPriceMultiplierSell;
+    }
+
+    public void setInnerSpherePartPriceMultiplierSell(final double innerSpherePartPriceMultiplierSell) {
+        this.innerSpherePartPriceMultiplierSell = innerSpherePartPriceMultiplierSell;
+    }
+
+    public double getClanUnitPriceMultiplierSell() {
+        return clanUnitPriceMultiplierSell;
+    }
+
+    public void setClanUnitPriceMultiplierSell(final double clanUnitPriceMultiplierSell) {
+        this.clanUnitPriceMultiplierSell = clanUnitPriceMultiplierSell;
+    }
+
+    public double getClanPartPriceMultiplierSell() {
+        return clanPartPriceMultiplierSell;
+    }
+
+    public void setClanPartPriceMultiplierSell(final double clanPartPriceMultiplierSell) {
+        this.clanPartPriceMultiplierSell = clanPartPriceMultiplierSell;
+    }
+
+    public double getMixedTechUnitPriceMultiplierSell() {
+        return mixedTechUnitPriceMultiplierSell;
+    }
+
+    public void setMixedTechUnitPriceMultiplierSell(final double mixedTechUnitPriceMultiplierSell) {
+        this.mixedTechUnitPriceMultiplierSell = mixedTechUnitPriceMultiplierSell;
     }
 
     public double[] getUsedPartPriceMultipliers() {

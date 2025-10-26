@@ -2429,11 +2429,11 @@ public class Unit implements ITechnology {
                                     getEntity().getCost(false));
 
         if (getEntity().isMixedTech()) {
-            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getMixedTechUnitPriceMultiplier());
+            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getMixedTechUnitPriceMultiplierBuy());
         } else if (getEntity().isClan()) {
-            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getClanUnitPriceMultiplier());
+            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getClanUnitPriceMultiplierBuy());
         } else { // Inner Sphere Entity
-            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getInnerSphereUnitPriceMultiplier());
+            cost = cost.multipliedBy(getCampaign().getCampaignOptions().getInnerSphereUnitPriceMultiplierBuy());
         }
 
         return cost;

@@ -857,28 +857,52 @@ public class CampaignOptionsMarshaller {
         // region Price Multipliers
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "commonPartPriceMultiplier",
-              campaignOptions.getCommonPartPriceMultiplier());
+              "commonPartPriceMultiplierBuy",
+              campaignOptions.getCommonPartPriceMultiplierBuy());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "innerSphereUnitPriceMultiplier",
-              campaignOptions.getInnerSphereUnitPriceMultiplier());
+              "innerSphereUnitPriceMultiplierBuy",
+              campaignOptions.getInnerSphereUnitPriceMultiplierBuy());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "innerSpherePartPriceMultiplier",
-              campaignOptions.getInnerSpherePartPriceMultiplier());
+              "innerSpherePartPriceMultiplierBuy",
+              campaignOptions.getInnerSpherePartPriceMultiplierBuy());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "clanUnitPriceMultiplier",
-              campaignOptions.getClanUnitPriceMultiplier());
+              "clanUnitPriceMultiplierBuy",
+              campaignOptions.getClanUnitPriceMultiplierBuy());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "clanPartPriceMultiplier",
-              campaignOptions.getClanPartPriceMultiplier());
+              "clanPartPriceMultiplierBuy",
+              campaignOptions.getClanPartPriceMultiplierBuy());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
-              "mixedTechUnitPriceMultiplier",
-              campaignOptions.getMixedTechUnitPriceMultiplier());
+              "mixedTechUnitPriceMultiplierBuy",
+              campaignOptions.getMixedTechUnitPriceMultiplierBuy());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "commonPartPriceMultiplierSell",
+              campaignOptions.getCommonPartPriceMultiplierSell());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "innerSphereUnitPriceMultiplierSell",
+              campaignOptions.getInnerSphereUnitPriceMultiplierSell());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "innerSpherePartPriceMultiplierSell",
+              campaignOptions.getInnerSpherePartPriceMultiplierSell());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "clanUnitPriceMultiplierSell",
+              campaignOptions.getClanUnitPriceMultiplierSell());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "clanPartPriceMultiplierSell",
+              campaignOptions.getClanPartPriceMultiplierSell());
+        MHQXMLUtility.writeSimpleXMLTag(pw,
+              indent,
+              "mixedTechUnitPriceMultiplierSell",
+              campaignOptions.getMixedTechUnitPriceMultiplierSell());
         MHQXMLUtility.writeSimpleXMLTag(pw,
               indent,
               "usedPartPriceMultipliers",

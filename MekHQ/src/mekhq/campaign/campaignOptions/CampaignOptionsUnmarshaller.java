@@ -697,16 +697,56 @@ public class CampaignOptionsUnmarshaller {
                   nodeContents));
             case "allowMonthlyConnections" -> campaignOptions.setAllowMonthlyConnections(parseBoolean(
                   nodeContents));
-            case "commonPartPriceMultiplier" -> campaignOptions.setCommonPartPriceMultiplier(parseDouble(
-                  nodeContents));
-            case "innerSphereUnitPriceMultiplier" -> campaignOptions.setInnerSphereUnitPriceMultiplier(parseDouble(
-                  nodeContents));
-            case "innerSpherePartPriceMultiplier" -> campaignOptions.setInnerSpherePartPriceMultiplier(parseDouble(
-                  nodeContents));
-            case "clanUnitPriceMultiplier" -> campaignOptions.setClanUnitPriceMultiplier(parseDouble(nodeContents));
-            case "clanPartPriceMultiplier" -> campaignOptions.setClanPartPriceMultiplier(parseDouble(nodeContents));
-            case "mixedTechUnitPriceMultiplier" -> campaignOptions.setMixedTechUnitPriceMultiplier(parseDouble(
-                  nodeContents));
+            // < 0.50.10 price multiplier compatibility handler (before option split)
+            case "commonPartPriceMultiplier" -> {
+                campaignOptions.setCommonPartPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setCommonPartPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            case "innerSphereUnitPriceMultiplier" -> {
+                campaignOptions.setInnerSphereUnitPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setInnerSphereUnitPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            case "innerSpherePartPriceMultiplier" -> {
+                campaignOptions.setInnerSpherePartPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setInnerSpherePartPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            case "clanUnitPriceMultiplier" -> {
+                campaignOptions.setClanUnitPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setClanUnitPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            case "clanPartPriceMultiplier" -> {
+                campaignOptions.setClanPartPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setClanPartPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            case "mixedTechUnitPriceMultiplier" -> {
+                campaignOptions.setMixedTechUnitPriceMultiplierBuy(parseDouble(nodeContents));
+                campaignOptions.setMixedTechUnitPriceMultiplierSell(parseDouble(nodeContents));
+            }
+            // end of < 0.50.10 price multiplier compatibility handler
+            case "commonPartPriceMultiplierBuy" ->
+                  campaignOptions.setCommonPartPriceMultiplierBuy(parseDouble(nodeContents));
+            case "innerSphereUnitPriceMultiplierBuy" ->
+                  campaignOptions.setInnerSphereUnitPriceMultiplierBuy(parseDouble(nodeContents));
+            case "innerSpherePartPriceMultiplierBuy" ->
+                  campaignOptions.setInnerSpherePartPriceMultiplierBuy(parseDouble(nodeContents));
+            case "clanUnitPriceMultiplierBuy" ->
+                  campaignOptions.setClanUnitPriceMultiplierBuy(parseDouble(nodeContents));
+            case "clanPartPriceMultiplierBuy" ->
+                  campaignOptions.setClanPartPriceMultiplierBuy(parseDouble(nodeContents));
+            case "mixedTechUnitPriceMultiplierBuy" ->
+                  campaignOptions.setMixedTechUnitPriceMultiplierBuy(parseDouble(nodeContents));
+            case "commonPartPriceMultiplierSell" ->
+                  campaignOptions.setCommonPartPriceMultiplierSell(parseDouble(nodeContents));
+            case "innerSphereUnitPriceMultiplierSell" ->
+                  campaignOptions.setInnerSphereUnitPriceMultiplierSell(parseDouble(nodeContents));
+            case "innerSpherePartPriceMultiplierSell" ->
+                  campaignOptions.setInnerSpherePartPriceMultiplierSell(parseDouble(nodeContents));
+            case "clanUnitPriceMultiplierSell" ->
+                  campaignOptions.setClanUnitPriceMultiplierSell(parseDouble(nodeContents));
+            case "clanPartPriceMultiplierSell" ->
+                  campaignOptions.setClanPartPriceMultiplierSell(parseDouble(nodeContents));
+            case "mixedTechUnitPriceMultiplierSell" ->
+                  campaignOptions.setMixedTechUnitPriceMultiplierSell(parseDouble(nodeContents));
             case "usedPartPriceMultipliers" -> {
                 final String[] values = nodeContents.split(",");
                 for (int i = 0; i < values.length; i++) {

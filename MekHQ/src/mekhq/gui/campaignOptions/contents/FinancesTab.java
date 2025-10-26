@@ -1058,12 +1058,18 @@ public class FinancesTab {
         options.setSharesForAll(chkSharesForAll.isSelected());
 
         // Price Multipliers
-        options.setCommonPartPriceMultiplier((double) spnCommonPartPriceMultiplierBuy.getValue());
-        options.setInnerSphereUnitPriceMultiplier((double) spnInnerSphereUnitPriceMultiplierBuy.getValue());
-        options.setInnerSpherePartPriceMultiplier((double) spnInnerSpherePartPriceMultiplierBuy.getValue());
-        options.setClanUnitPriceMultiplier((double) spnClanUnitPriceMultiplierBuy.getValue());
-        options.setClanPartPriceMultiplier((double) spnClanPartPriceMultiplierBuy.getValue());
-        options.setMixedTechUnitPriceMultiplier((double) spnMixedTechUnitPriceMultiplierBuy.getValue());
+        options.setCommonPartPriceMultiplierBuy((double) spnCommonPartPriceMultiplierBuy.getValue());
+        options.setInnerSphereUnitPriceMultiplierBuy((double) spnInnerSphereUnitPriceMultiplierBuy.getValue());
+        options.setInnerSpherePartPriceMultiplierBuy((double) spnInnerSpherePartPriceMultiplierBuy.getValue());
+        options.setClanUnitPriceMultiplierBuy((double) spnClanUnitPriceMultiplierBuy.getValue());
+        options.setClanPartPriceMultiplierBuy((double) spnClanPartPriceMultiplierBuy.getValue());
+        options.setMixedTechUnitPriceMultiplierBuy((double) spnMixedTechUnitPriceMultiplierBuy.getValue());
+        options.setCommonPartPriceMultiplierSell((double) spnCommonPartPriceMultiplierSell.getValue());
+        options.setInnerSphereUnitPriceMultiplierSell((double) spnInnerSphereUnitPriceMultiplierSell.getValue());
+        options.setInnerSpherePartPriceMultiplierSell((double) spnInnerSpherePartPriceMultiplierSell.getValue());
+        options.setClanUnitPriceMultiplierSell((double) spnClanUnitPriceMultiplierSell.getValue());
+        options.setClanPartPriceMultiplierSell((double) spnClanPartPriceMultiplierSell.getValue());
+        options.setMixedTechUnitPriceMultiplierSell((double) spnMixedTechUnitPriceMultiplierSell.getValue());
         for (int i = 0; i < spnUsedPartPriceMultipliers.length; i++) {
             options.getUsedPartPriceMultipliers()[i] = (Double) spnUsedPartPriceMultipliers[i].getValue();
         }
@@ -1125,12 +1131,18 @@ public class FinancesTab {
         chkSharesForAll.setSelected(options.isSharesForAll());
 
         // Price Multipliers
-        spnCommonPartPriceMultiplierBuy.setValue(options.getCommonPartPriceMultiplier());
-        spnInnerSphereUnitPriceMultiplierBuy.setValue(options.getInnerSphereUnitPriceMultiplier());
-        spnInnerSpherePartPriceMultiplierBuy.setValue(options.getInnerSpherePartPriceMultiplier());
-        spnClanUnitPriceMultiplierBuy.setValue(options.getClanUnitPriceMultiplier());
-        spnClanPartPriceMultiplierBuy.setValue(options.getClanPartPriceMultiplier());
-        spnMixedTechUnitPriceMultiplierBuy.setValue(options.getMixedTechUnitPriceMultiplier());
+        spnCommonPartPriceMultiplierBuy.setValue(options.getCommonPartPriceMultiplierBuy());
+        spnInnerSphereUnitPriceMultiplierBuy.setValue(options.getInnerSphereUnitPriceMultiplierBuy());
+        spnInnerSpherePartPriceMultiplierBuy.setValue(options.getInnerSpherePartPriceMultiplierBuy());
+        spnClanUnitPriceMultiplierBuy.setValue(options.getClanUnitPriceMultiplierBuy());
+        spnClanPartPriceMultiplierBuy.setValue(options.getClanPartPriceMultiplierBuy());
+        spnMixedTechUnitPriceMultiplierBuy.setValue(options.getMixedTechUnitPriceMultiplierBuy());
+        spnCommonPartPriceMultiplierSell.setValue(options.getCommonPartPriceMultiplierSell());
+        spnInnerSphereUnitPriceMultiplierSell.setValue(options.getInnerSphereUnitPriceMultiplierSell());
+        spnInnerSpherePartPriceMultiplierSell.setValue(options.getInnerSpherePartPriceMultiplierSell());
+        spnClanUnitPriceMultiplierSell.setValue(options.getClanUnitPriceMultiplierSell());
+        spnClanPartPriceMultiplierSell.setValue(options.getClanPartPriceMultiplierSell());
+        spnMixedTechUnitPriceMultiplierSell.setValue(options.getMixedTechUnitPriceMultiplierSell());
         for (int i = 0; i < spnUsedPartPriceMultipliers.length; i++) {
             spnUsedPartPriceMultipliers[i].setValue(options.getUsedPartPriceMultipliers()[i]);
         }

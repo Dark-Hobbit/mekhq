@@ -301,14 +301,14 @@ public abstract class Part implements IPartWork, ITechnology {
 
         switch (getTechBase()) {
             case IS:
-                cost = cost.multipliedBy(campaign.getCampaignOptions().getInnerSphereUnitPriceMultiplier());
+                cost = cost.multipliedBy(campaign.getCampaignOptions().getInnerSpherePartPriceMultiplierBuy());
                 break;
             case CLAN:
-                cost = cost.multipliedBy(campaign.getCampaignOptions().getClanUnitPriceMultiplier());
+                cost = cost.multipliedBy(campaign.getCampaignOptions().getClanPartPriceMultiplierBuy());
                 break;
             case ALL:
             default:
-                cost = cost.multipliedBy(campaign.getCampaignOptions().getCommonPartPriceMultiplier());
+                cost = cost.multipliedBy(campaign.getCampaignOptions().getCommonPartPriceMultiplierBuy());
                 break;
         }
 

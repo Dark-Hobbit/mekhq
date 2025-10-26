@@ -75,9 +75,9 @@ public class TotalBuyCostTest {
         mockCampaign = mock(Campaign.class);
         mockCampaignOptions = mock(CampaignOptions.class);
         lenient().when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);
-        lenient().when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
-        lenient().when(mockCampaignOptions.getInnerSphereUnitPriceMultiplier()).thenReturn(1d);
-        lenient().when(mockCampaignOptions.getInnerSpherePartPriceMultiplier()).thenReturn(1d);
+        lenient().when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
+        lenient().when(mockCampaignOptions.getInnerSphereUnitPriceMultiplierBuy()).thenReturn(1d);
+        lenient().when(mockCampaignOptions.getInnerSpherePartPriceMultiplierBuy()).thenReturn(1d);
         double[] usedPartMultipliers = { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
         lenient().when(mockCampaignOptions.getUsedPartPriceMultipliers()).thenReturn(usedPartMultipliers);
 

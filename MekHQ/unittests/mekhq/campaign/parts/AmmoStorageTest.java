@@ -103,7 +103,7 @@ public class AmmoStorageTest {
         AmmoType ammoType = getAmmoType("ISAC5 Ammo");
 
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
 
         Campaign mockCampaign = mock(Campaign.class);
         when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);
@@ -125,7 +125,7 @@ public class AmmoStorageTest {
         AmmoType ammoType = getAmmoType("ISAC5 Ammo");
 
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
 
         Campaign mockCampaign = mock(Campaign.class);
         when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);
@@ -154,7 +154,7 @@ public class AmmoStorageTest {
         AmmoType ammoType = getAmmoType("ISAC5 Ammo");
 
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
 
         Campaign mockCampaign = mock(Campaign.class);
         when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);
@@ -183,7 +183,7 @@ public class AmmoStorageTest {
         AmmoType ammoType = getAmmoType("ISSRM6 Inferno Ammo");
 
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
 
         Campaign mockCampaign = mock(Campaign.class);
         when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);
@@ -422,7 +422,7 @@ public class AmmoStorageTest {
         AmmoType isAC5Ammo = getAmmoType("ISAC5 Ammo");
 
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
 
         Campaign mockCampaign = mock(Campaign.class);
         when(mockCampaign.getCampaignOptions()).thenReturn(mockCampaignOptions);

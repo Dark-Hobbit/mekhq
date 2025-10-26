@@ -317,7 +317,7 @@ public class QuartermasterTest {
 
         // If we pay for units...
         when(mockOptions.isPayForUnits()).thenReturn(true);
-        when(mockOptions.getInnerSphereUnitPriceMultiplier()).thenReturn(1.0);
+        when(mockOptions.getInnerSphereUnitPriceMultiplierBuy()).thenReturn(1.0);
 
         // ...and can afford a unit...
         Finances mockFinances = mock(Finances.class);
@@ -349,7 +349,7 @@ public class QuartermasterTest {
 
         // If we pay for units...
         when(mockOptions.isPayForUnits()).thenReturn(true);
-        when(mockOptions.getInnerSphereUnitPriceMultiplier()).thenReturn(1.0);
+        when(mockOptions.getInnerSphereUnitPriceMultiplierBuy()).thenReturn(1.0);
 
         // ...and can afford a unit...
         Finances mockFinances = mock(Finances.class);
@@ -384,7 +384,7 @@ public class QuartermasterTest {
 
         // ...and clan units cost 2x...
         double clanMultiplier = 2.0;
-        when(mockOptions.getClanUnitPriceMultiplier()).thenReturn(clanMultiplier);
+        when(mockOptions.getClanUnitPriceMultiplierBuy()).thenReturn(clanMultiplier);
 
         // ...and can afford a unit...
         Finances mockFinances = mock(Finances.class);
@@ -421,7 +421,7 @@ public class QuartermasterTest {
 
         // ...and clan units cost 2x...
         double clanMultiplier = 2.0;
-        when(mockOptions.getClanUnitPriceMultiplier()).thenReturn(clanMultiplier);
+        when(mockOptions.getClanUnitPriceMultiplierBuy()).thenReturn(clanMultiplier);
 
         // ...and can afford a unit...
         Finances mockFinances = mock(Finances.class);
@@ -1590,7 +1590,7 @@ public class QuartermasterTest {
     @Test
     public void remotePartAddsPartFromPodAndCorrectOmniPod() {
         CampaignOptions mockCampaignOptions = mock(CampaignOptions.class);
-        when(mockCampaignOptions.getCommonPartPriceMultiplier()).thenReturn(1d);
+        when(mockCampaignOptions.getCommonPartPriceMultiplierBuy()).thenReturn(1d);
         when(mockCampaignOptions.getDamagedPartsValueMultiplier()).thenReturn(1d);
 
         Warehouse mockWarehouse = mock(Warehouse.class);
