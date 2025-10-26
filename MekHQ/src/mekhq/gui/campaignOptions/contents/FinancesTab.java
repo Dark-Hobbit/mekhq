@@ -114,19 +114,33 @@ public class FinancesTab {
 
     //start Price Multipliers
     private CampaignOptionsHeaderPanel priceMultipliersHeader;
-    private JPanel pnlGeneralMultipliers;
-    private JLabel lblCommonPartPriceMultiplier;
-    private JSpinner spnCommonPartPriceMultiplier;
-    private JLabel lblInnerSphereUnitPriceMultiplier;
-    private JSpinner spnInnerSphereUnitPriceMultiplier;
-    private JLabel lblInnerSpherePartPriceMultiplier;
-    private JSpinner spnInnerSpherePartPriceMultiplier;
-    private JLabel lblClanUnitPriceMultiplier;
-    private JSpinner spnClanUnitPriceMultiplier;
-    private JLabel lblClanPartPriceMultiplier;
-    private JSpinner spnClanPartPriceMultiplier;
-    private JLabel lblMixedTechUnitPriceMultiplier;
-    private JSpinner spnMixedTechUnitPriceMultiplier;
+    private JPanel pnlGeneralMultipliersBuy;
+    private JLabel lblCommonPartPriceMultiplierBuy;
+    private JSpinner spnCommonPartPriceMultiplierBuy;
+    private JLabel lblInnerSphereUnitPriceMultiplierBuy;
+    private JSpinner spnInnerSphereUnitPriceMultiplierBuy;
+    private JLabel lblInnerSpherePartPriceMultiplierBuy;
+    private JSpinner spnInnerSpherePartPriceMultiplierBuy;
+    private JLabel lblClanUnitPriceMultiplierBuy;
+    private JSpinner spnClanUnitPriceMultiplierBuy;
+    private JLabel lblClanPartPriceMultiplierBuy;
+    private JSpinner spnClanPartPriceMultiplierBuy;
+    private JLabel lblMixedTechUnitPriceMultiplierBuy;
+    private JSpinner spnMixedTechUnitPriceMultiplierBuy;
+
+    private JPanel pnlGeneralMultipliersSell;
+    private JLabel lblCommonPartPriceMultiplierSell;
+    private JSpinner spnCommonPartPriceMultiplierSell;
+    private JLabel lblInnerSphereUnitPriceMultiplierSell;
+    private JSpinner spnInnerSphereUnitPriceMultiplierSell;
+    private JLabel lblInnerSpherePartPriceMultiplierSell;
+    private JSpinner spnInnerSpherePartPriceMultiplierSell;
+    private JLabel lblClanUnitPriceMultiplierSell;
+    private JSpinner spnClanUnitPriceMultiplierSell;
+    private JLabel lblClanPartPriceMultiplierSell;
+    private JSpinner spnClanPartPriceMultiplierSell;
+    private JLabel lblMixedTechUnitPriceMultiplierSell;
+    private JSpinner spnMixedTechUnitPriceMultiplierSell;
 
     private JPanel pnlUsedPartsMultipliers;
     private JLabel[] lblUsedPartPriceMultipliers;
@@ -545,19 +559,33 @@ public class FinancesTab {
      * fields. Each field corresponds to a specific category of price multiplier.
      */
     private void initializePriceMultipliersTab() {
-        pnlGeneralMultipliers = new JPanel();
-        lblCommonPartPriceMultiplier = new JLabel();
-        spnCommonPartPriceMultiplier = new JSpinner();
-        lblInnerSphereUnitPriceMultiplier = new JLabel();
-        spnInnerSphereUnitPriceMultiplier = new JSpinner();
-        lblInnerSpherePartPriceMultiplier = new JLabel();
-        spnInnerSpherePartPriceMultiplier = new JSpinner();
-        lblClanUnitPriceMultiplier = new JLabel();
-        spnClanUnitPriceMultiplier = new JSpinner();
-        lblClanPartPriceMultiplier = new JLabel();
-        spnClanPartPriceMultiplier = new JSpinner();
-        lblMixedTechUnitPriceMultiplier = new JLabel();
-        spnMixedTechUnitPriceMultiplier = new JSpinner();
+        pnlGeneralMultipliersBuy = new JPanel();
+        lblCommonPartPriceMultiplierBuy = new JLabel();
+        spnCommonPartPriceMultiplierBuy = new JSpinner();
+        lblInnerSphereUnitPriceMultiplierBuy = new JLabel();
+        spnInnerSphereUnitPriceMultiplierBuy = new JSpinner();
+        lblInnerSpherePartPriceMultiplierBuy = new JLabel();
+        spnInnerSpherePartPriceMultiplierBuy = new JSpinner();
+        lblClanUnitPriceMultiplierBuy = new JLabel();
+        spnClanUnitPriceMultiplierBuy = new JSpinner();
+        lblClanPartPriceMultiplierBuy = new JLabel();
+        spnClanPartPriceMultiplierBuy = new JSpinner();
+        lblMixedTechUnitPriceMultiplierBuy = new JLabel();
+        spnMixedTechUnitPriceMultiplierBuy = new JSpinner();
+
+        pnlGeneralMultipliersSell = new JPanel();
+        lblCommonPartPriceMultiplierSell = new JLabel();
+        spnCommonPartPriceMultiplierSell = new JSpinner();
+        lblInnerSphereUnitPriceMultiplierSell = new JLabel();
+        spnInnerSphereUnitPriceMultiplierSell = new JSpinner();
+        lblInnerSpherePartPriceMultiplierSell = new JLabel();
+        spnInnerSpherePartPriceMultiplierSell = new JSpinner();
+        lblClanUnitPriceMultiplierSell = new JLabel();
+        spnClanUnitPriceMultiplierSell = new JSpinner();
+        lblClanPartPriceMultiplierSell = new JLabel();
+        spnClanPartPriceMultiplierSell = new JSpinner();
+        lblMixedTechUnitPriceMultiplierSell = new JLabel();
+        spnMixedTechUnitPriceMultiplierSell = new JSpinner();
 
         pnlUsedPartsMultipliers = new JPanel();
         lblUsedPartPriceMultipliers = new JLabel[1]; // we initialize this properly later
@@ -585,7 +613,8 @@ public class FinancesTab {
               getImageDirectory() + "logo_clan_stone_lion.png", true, true, 2);
 
         // Contents
-        pnlGeneralMultipliers = createGeneralMultipliersPanel();
+        pnlGeneralMultipliersBuy = createGeneralMultipliersBuyPanel();
+        pnlGeneralMultipliersSell = createGeneralMultipliersSellPanel();
         pnlUsedPartsMultipliers = createUsedPartsMultiplierPanel();
         pnlOtherMultipliers = createOtherMultipliersPanel();
 
@@ -600,7 +629,9 @@ public class FinancesTab {
 
         layout.gridy++;
         layout.gridwidth = 1;
-        panel.add(pnlGeneralMultipliers, layout);
+        panel.add(pnlGeneralMultipliersBuy, layout);
+        layout.gridx++;
+        panel.add(pnlGeneralMultipliersSell, layout);
         layout.gridx++;
         panel.add(pnlUsedPartsMultipliers, layout);
         layout.gridx++;
@@ -616,102 +647,257 @@ public class FinancesTab {
      * units. The panel is structured using a grid layout for organized placement of components.
      *
      * @return a JPanel containing the components for setting general multipliers.
+     *
+     * @deprecated see {@link #createGeneralMultipliersBuyPanel()} and {@link #createGeneralMultipliersSellPanel()}
      */
+    @Deprecated(since = "0.50.10", forRemoval = true)
     private JPanel createGeneralMultipliersPanel() {
+        return createGeneralMultipliersBuyPanel();
+    }
+
+    /**
+     * Creates and configures the "buy" part of the general multipliers panel, which includes labels and spinners for
+     * various pricing multipliers such as common parts, Inner Sphere units, Inner Sphere parts, Clan units, Clan
+     * parts, and mixed tech units. The panel is structured using a grid layout for organized placement of components.
+     *
+     * @return a JPanel containing the components for setting general buy price multipliers.
+     */
+    private JPanel createGeneralMultipliersBuyPanel() {
         // Contents
-        lblCommonPartPriceMultiplier = new CampaignOptionsLabel("CommonPartPriceMultiplier");
-        lblCommonPartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "CommonPartPriceMultiplier"));
-        spnCommonPartPriceMultiplier = new CampaignOptionsSpinner("CommonPartPriceMultiplier", 1.0, 0.1, 100, 0.1);
-        spnCommonPartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "CommonPartPriceMultiplier"));
-
-        lblInnerSphereUnitPriceMultiplier = new CampaignOptionsLabel("InnerSphereUnitPriceMultiplier");
-        lblInnerSphereUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "InnerSphereUnitPriceMultiplier"));
-        spnInnerSphereUnitPriceMultiplier = new CampaignOptionsSpinner("InnerSphereUnitPriceMultiplier",
+        lblCommonPartPriceMultiplierBuy = new CampaignOptionsLabel("CommonPartPriceMultiplierBuy");
+        lblCommonPartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "CommonPartPriceMultiplierBuy"));
+        spnCommonPartPriceMultiplierBuy = new CampaignOptionsSpinner("CommonPartPriceMultiplierBuy",
               1.0,
               0.1,
               100,
               0.1);
-        spnInnerSphereUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "InnerSphereUnitPriceMultiplier"));
+        spnCommonPartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "CommonPartPriceMultiplierBuy"));
 
-        lblInnerSpherePartPriceMultiplier = new CampaignOptionsLabel("InnerSpherePartPriceMultiplier");
-        lblInnerSpherePartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "InnerSpherePartPriceMultiplier"));
-        spnInnerSpherePartPriceMultiplier = new CampaignOptionsSpinner("InnerSpherePartPriceMultiplier",
+        lblInnerSphereUnitPriceMultiplierBuy = new CampaignOptionsLabel("InnerSphereUnitPriceMultiplierBuy");
+        lblInnerSphereUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSphereUnitPriceMultiplierBuy"));
+        spnInnerSphereUnitPriceMultiplierBuy = new CampaignOptionsSpinner("InnerSphereUnitPriceMultiplierBuy",
               1.0,
               0.1,
               100,
               0.1);
-        spnInnerSpherePartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "InnerSpherePartPriceMultiplier"));
+        spnInnerSphereUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSphereUnitPriceMultiplierBuy"));
 
-        lblClanUnitPriceMultiplier = new CampaignOptionsLabel("ClanUnitPriceMultiplier");
-        lblClanUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "ClanUnitPriceMultiplier"));
-        spnClanUnitPriceMultiplier = new CampaignOptionsSpinner("ClanUnitPriceMultiplier", 1.0, 0.1, 100, 0.1);
-        spnClanUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "ClanUnitPriceMultiplier"));
-
-        lblClanPartPriceMultiplier = new CampaignOptionsLabel("ClanPartPriceMultiplier");
-        lblClanPartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "ClanPartPriceMultiplier"));
-        spnClanPartPriceMultiplier = new CampaignOptionsSpinner("ClanPartPriceMultiplier", 1.0, 0.1, 100, 0.1);
-        spnClanPartPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "ClanPartPriceMultiplier"));
-
-        lblMixedTechUnitPriceMultiplier = new CampaignOptionsLabel("MixedTechUnitPriceMultiplier");
-        lblMixedTechUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "MixedTechUnitPriceMultiplier"));
-        spnMixedTechUnitPriceMultiplier = new CampaignOptionsSpinner("MixedTechUnitPriceMultiplier",
+        lblInnerSpherePartPriceMultiplierBuy = new CampaignOptionsLabel("InnerSpherePartPriceMultiplierBuy");
+        lblInnerSpherePartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSpherePartPriceMultiplierBuy"));
+        spnInnerSpherePartPriceMultiplierBuy = new CampaignOptionsSpinner("InnerSpherePartPriceMultiplierBuy",
               1.0,
               0.1,
               100,
               0.1);
-        spnMixedTechUnitPriceMultiplier.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
-              "MixedTechUnitPriceMultiplier"));
+        spnInnerSpherePartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSpherePartPriceMultiplierBuy"));
+
+        lblClanUnitPriceMultiplierBuy = new CampaignOptionsLabel("ClanUnitPriceMultiplierBuy");
+        lblClanUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanUnitPriceMultiplierBuy"));
+        spnClanUnitPriceMultiplierBuy = new CampaignOptionsSpinner("ClanUnitPriceMultiplierBuy",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnClanUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanUnitPriceMultiplierBuy"));
+
+        lblClanPartPriceMultiplierBuy = new CampaignOptionsLabel("ClanPartPriceMultiplierBuy");
+        lblClanPartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanPartPriceMultiplierBuy"));
+        spnClanPartPriceMultiplierBuy = new CampaignOptionsSpinner("ClanPartPriceMultiplierBuy",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnClanPartPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanPartPriceMultiplierBuy"));
+
+        lblMixedTechUnitPriceMultiplierBuy = new CampaignOptionsLabel("MixedTechUnitPriceMultiplierBuy");
+        lblMixedTechUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "MixedTechUnitPriceMultiplierBuy"));
+        spnMixedTechUnitPriceMultiplierBuy = new CampaignOptionsSpinner("MixedTechUnitPriceMultiplierBuy",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnMixedTechUnitPriceMultiplierBuy.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "MixedTechUnitPriceMultiplierBuy"));
 
         // Layout the Panel
-        final JPanel panel = new CampaignOptionsStandardPanel("GeneralMultipliersPanel",
+        final JPanel panel = new CampaignOptionsStandardPanel("GeneralMultipliersBuyPanel",
               true,
-              "GeneralMultipliersPanel");
+              "GeneralMultipliersBuyPanel");
         final GridBagConstraints layout = new CampaignOptionsGridBagConstraints(panel);
 
         layout.gridx = 0;
         layout.gridy = 0;
         layout.gridwidth = 1;
-        panel.add(lblCommonPartPriceMultiplier, layout);
+        panel.add(lblCommonPartPriceMultiplierBuy, layout);
         layout.gridx++;
-        panel.add(spnCommonPartPriceMultiplier, layout);
-        layout.gridx++;
-        panel.add(lblMixedTechUnitPriceMultiplier, layout);
-        layout.gridx++;
-        panel.add(spnMixedTechUnitPriceMultiplier, layout);
+        panel.add(spnCommonPartPriceMultiplierBuy, layout);
 
         layout.gridx = 0;
         layout.gridy++;
-        panel.add(lblInnerSphereUnitPriceMultiplier, layout);
+        panel.add(lblMixedTechUnitPriceMultiplierBuy, layout);
         layout.gridx++;
-        panel.add(spnInnerSphereUnitPriceMultiplier, layout);
-        layout.gridx++;
-        panel.add(lblInnerSpherePartPriceMultiplier, layout);
-        layout.gridx++;
-        panel.add(spnInnerSpherePartPriceMultiplier, layout);
+        panel.add(spnMixedTechUnitPriceMultiplierBuy, layout);
 
         layout.gridx = 0;
         layout.gridy++;
-        panel.add(lblClanUnitPriceMultiplier, layout);
+        panel.add(lblInnerSphereUnitPriceMultiplierBuy, layout);
         layout.gridx++;
-        panel.add(spnClanUnitPriceMultiplier, layout);
+        panel.add(spnInnerSphereUnitPriceMultiplierBuy, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblInnerSpherePartPriceMultiplierBuy, layout);
         layout.gridx++;
-        panel.add(lblClanPartPriceMultiplier, layout);
+        panel.add(spnInnerSpherePartPriceMultiplierBuy, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblClanUnitPriceMultiplierBuy, layout);
         layout.gridx++;
-        panel.add(spnClanPartPriceMultiplier, layout);
+        panel.add(spnClanUnitPriceMultiplierBuy, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblClanPartPriceMultiplierBuy, layout);
+        layout.gridx++;
+        panel.add(spnClanPartPriceMultiplierBuy, layout);
 
         return panel;
     }
+
+    /**
+     * Creates and configures the "sell" part of the general multipliers panel, which includes labels and spinners for
+     * various pricing multipliers such as common parts, Inner Sphere units, Inner Sphere parts, Clan units, Clan
+     * parts, and mixed tech units. The panel is structured using a grid layout for organized placement of components.
+     *
+     * @return a JPanel containing the components for setting general sell price multipliers.
+     */
+    private JPanel createGeneralMultipliersSellPanel() {
+        // Contents
+        lblCommonPartPriceMultiplierSell = new CampaignOptionsLabel("CommonPartPriceMultiplierSell");
+        lblCommonPartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "CommonPartPriceMultiplierSell"));
+        spnCommonPartPriceMultiplierSell = new CampaignOptionsSpinner("CommonPartPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnCommonPartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "CommonPartPriceMultiplierSell"));
+
+        lblInnerSphereUnitPriceMultiplierSell = new CampaignOptionsLabel("InnerSphereUnitPriceMultiplierSell");
+        lblInnerSphereUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSphereUnitPriceMultiplierSell"));
+        spnInnerSphereUnitPriceMultiplierSell = new CampaignOptionsSpinner("InnerSphereUnitPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnInnerSphereUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSphereUnitPriceMultiplierSell"));
+
+        lblInnerSpherePartPriceMultiplierSell = new CampaignOptionsLabel("InnerSpherePartPriceMultiplierSell");
+        lblInnerSpherePartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSpherePartPriceMultiplierSell"));
+        spnInnerSpherePartPriceMultiplierSell = new CampaignOptionsSpinner("InnerSpherePartPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnInnerSpherePartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "InnerSpherePartPriceMultiplierSell"));
+
+        lblClanUnitPriceMultiplierSell = new CampaignOptionsLabel("ClanUnitPriceMultiplierSell");
+        lblClanUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanUnitPriceMultiplierSell"));
+        spnClanUnitPriceMultiplierSell = new CampaignOptionsSpinner("ClanUnitPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnClanUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanUnitPriceMultiplierSell"));
+
+        lblClanPartPriceMultiplierSell = new CampaignOptionsLabel("ClanPartPriceMultiplierSell");
+        lblClanPartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanPartPriceMultiplierSell"));
+        spnClanPartPriceMultiplierSell = new CampaignOptionsSpinner("ClanPartPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnClanPartPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "ClanPartPriceMultiplierSell"));
+
+        lblMixedTechUnitPriceMultiplierSell = new CampaignOptionsLabel("MixedTechUnitPriceMultiplierSell");
+        lblMixedTechUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "MixedTechUnitPriceMultiplierSell"));
+        spnMixedTechUnitPriceMultiplierSell = new CampaignOptionsSpinner("MixedTechUnitPriceMultiplierSell",
+              1.0,
+              0.1,
+              100,
+              0.1);
+        spnMixedTechUnitPriceMultiplierSell.addMouseListener(createTipPanelUpdater(priceMultipliersHeader,
+              "MixedTechUnitPriceMultiplierSell"));
+
+        // Layout the Panel
+        final JPanel panel = new CampaignOptionsStandardPanel("GeneralMultipliersSellPanel",
+              true,
+              "GeneralMultipliersSellPanel");
+        final GridBagConstraints layout = new CampaignOptionsGridBagConstraints(panel);
+
+        layout.gridx = 0;
+        layout.gridy = 0;
+        layout.gridwidth = 1;
+        panel.add(lblCommonPartPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnCommonPartPriceMultiplierSell, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblMixedTechUnitPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnMixedTechUnitPriceMultiplierSell, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblInnerSphereUnitPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnInnerSphereUnitPriceMultiplierSell, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblInnerSpherePartPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnInnerSpherePartPriceMultiplierSell, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblClanUnitPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnClanUnitPriceMultiplierSell, layout);
+
+        layout.gridx = 0;
+        layout.gridy++;
+        panel.add(lblClanPartPriceMultiplierSell, layout);
+        layout.gridx++;
+        panel.add(spnClanPartPriceMultiplierSell, layout);
+
+        return panel;
+    }
+
+
 
     /**
      * Creates and returns a JPanel for configuring used parts price multipliers based on part quality. Each part
@@ -872,12 +1058,12 @@ public class FinancesTab {
         options.setSharesForAll(chkSharesForAll.isSelected());
 
         // Price Multipliers
-        options.setCommonPartPriceMultiplier((double) spnCommonPartPriceMultiplier.getValue());
-        options.setInnerSphereUnitPriceMultiplier((double) spnInnerSphereUnitPriceMultiplier.getValue());
-        options.setInnerSpherePartPriceMultiplier((double) spnInnerSpherePartPriceMultiplier.getValue());
-        options.setClanUnitPriceMultiplier((double) spnClanUnitPriceMultiplier.getValue());
-        options.setClanPartPriceMultiplier((double) spnClanPartPriceMultiplier.getValue());
-        options.setMixedTechUnitPriceMultiplier((double) spnMixedTechUnitPriceMultiplier.getValue());
+        options.setCommonPartPriceMultiplier((double) spnCommonPartPriceMultiplierBuy.getValue());
+        options.setInnerSphereUnitPriceMultiplier((double) spnInnerSphereUnitPriceMultiplierBuy.getValue());
+        options.setInnerSpherePartPriceMultiplier((double) spnInnerSpherePartPriceMultiplierBuy.getValue());
+        options.setClanUnitPriceMultiplier((double) spnClanUnitPriceMultiplierBuy.getValue());
+        options.setClanPartPriceMultiplier((double) spnClanPartPriceMultiplierBuy.getValue());
+        options.setMixedTechUnitPriceMultiplier((double) spnMixedTechUnitPriceMultiplierBuy.getValue());
         for (int i = 0; i < spnUsedPartPriceMultipliers.length; i++) {
             options.getUsedPartPriceMultipliers()[i] = (Double) spnUsedPartPriceMultipliers[i].getValue();
         }
@@ -939,12 +1125,12 @@ public class FinancesTab {
         chkSharesForAll.setSelected(options.isSharesForAll());
 
         // Price Multipliers
-        spnCommonPartPriceMultiplier.setValue(options.getCommonPartPriceMultiplier());
-        spnInnerSphereUnitPriceMultiplier.setValue(options.getInnerSphereUnitPriceMultiplier());
-        spnInnerSpherePartPriceMultiplier.setValue(options.getInnerSpherePartPriceMultiplier());
-        spnClanUnitPriceMultiplier.setValue(options.getClanUnitPriceMultiplier());
-        spnClanPartPriceMultiplier.setValue(options.getClanPartPriceMultiplier());
-        spnMixedTechUnitPriceMultiplier.setValue(options.getMixedTechUnitPriceMultiplier());
+        spnCommonPartPriceMultiplierBuy.setValue(options.getCommonPartPriceMultiplier());
+        spnInnerSphereUnitPriceMultiplierBuy.setValue(options.getInnerSphereUnitPriceMultiplier());
+        spnInnerSpherePartPriceMultiplierBuy.setValue(options.getInnerSpherePartPriceMultiplier());
+        spnClanUnitPriceMultiplierBuy.setValue(options.getClanUnitPriceMultiplier());
+        spnClanPartPriceMultiplierBuy.setValue(options.getClanPartPriceMultiplier());
+        spnMixedTechUnitPriceMultiplierBuy.setValue(options.getMixedTechUnitPriceMultiplier());
         for (int i = 0; i < spnUsedPartPriceMultipliers.length; i++) {
             spnUsedPartPriceMultipliers[i].setValue(options.getUsedPartPriceMultipliers()[i]);
         }
